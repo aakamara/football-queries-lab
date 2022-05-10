@@ -28,8 +28,8 @@ SELECT COUNT(*) FROM public.matches WHERE ftr='D' --needs a DISTINCT
 -- 9. Select the matches played in the Premier League in order of total goals scored from highest to lowest. Where there is a tie the match with more home goals should come first.
 SELECT * FROM public.matches WHERE division_code='SC0' ORDER BY ftr DESC;
 
--- 10. In which division and which season were the most goals scored?
+-- 10. In which division and which season were the most goals scored? 
 SELECT division_code, season FROM public.matches WHERE fthg = (SELECT MAX(fthg) FROM public.matches);
-SELECT division_code, season FROM public.matches WHERE ftag = (SELECT MAX(ftag) FROM public.matches);
+SELECT division_code, season FROM public.matches WHERE ftag = (SELECT MAX(ftag) FROM public.matches); -- MERGE?
 
 -- type your code run the code psql -d football -f football_queries.sql
